@@ -1,7 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
-#include "Lista ADJ\ListaAdjacencia.c"
+#include "Lista ADJ/ListaAdjacencia.h"
 
 void GrafoNaoOrientado(ListaAdj *vet[], ListaAdj *vetSaida[]){
      printf("\nGrafo Nao Orientado:\n");
@@ -38,6 +38,5 @@ int main(){
     GrafoNaoOrientado(vet,vetSaida);
     ImprimirLista(vetSaida);
     
-    system("PAUSE");	
     return 0;
 }

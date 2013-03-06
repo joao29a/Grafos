@@ -1,6 +1,6 @@
 #include <stdio.h>
 #include <stdlib.h>
-#include "Lista ADJ\ListaAdjacencia.c"
+#include "Lista ADJ/ListaAdjacencia.h"
 
 void GrafoQuadrado(ListaAdj *vet[], ListaAdj *vetSaida[]){
         printf("\nGrafo Quadrado:\n");
@@ -31,7 +31,6 @@ int main(){
     criarVetPtr(vetSaida);
     GrafoQuadrado(vet,vetSaida);
     ImprimirLista(vetSaida);
-    
-    system("PAUSE");	
+   
     return 0;
 }

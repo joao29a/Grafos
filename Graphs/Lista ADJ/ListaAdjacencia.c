@@ -1,3 +1,5 @@
+#include <stdio.h>
+#include <stdlib.h>
 #include "ListaAdjacencia.h"
 
 void InserirVertices(ListaAdj *vet[]){

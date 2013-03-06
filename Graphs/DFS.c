@@ -1,8 +1,8 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
-#include "Pilha\Pilha.c"
-#include "Lista ADJ\ListaAdjacencia.c"
+#include "Pilha/Pilha.h"
+#include "Lista ADJ/ListaAdjacencia.h"
 
 //Depth-first search non-recursive
 void DFS(ListaAdj *vet[], int selecionado){
@@ -53,7 +53,5 @@ int main(){
      zerarVisita(vet);
      printf("Depth-first search recursive: ");
      DFSR(vet,INICIO);
-     printf("\n");
-     system("PAUSE");
      return 0;
 }

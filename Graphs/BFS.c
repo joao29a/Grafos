@@ -1,7 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
-#include "Fila\Fila.c"
-#include "Lista ADJ\ListaAdjacencia.c"
+#include "Fila/Fila.h"
+#include "Lista ADJ/ListaAdjacencia.h"
 
 void BFS(ListaAdj *vet[], int selecionado){
      zerarVisita(vet);
@@ -39,6 +39,5 @@ int main(){
     ImprimirLista(vet);
     BFS(vet,INICIO);
     imprimirDistancia(vet);
-    system("PAUSE");
     return 0;
 }

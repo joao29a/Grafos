@@ -1,7 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
-#include "Lista ADJ\ListaAdjacencia.c"
+#include "Lista ADJ/ListaAdjacencia.h"
 
 void GrauSaida(ListaAdj *origem[]){
      ListaAdj *pont;
@@ -58,6 +58,5 @@ int main(){
     GrauEntrada(vet);
     ImprimirGrauEntrada(vet);
     
-    system("PAUSE");
     return 0;
 }
