@@ -19,8 +19,8 @@ void GrafoNaoOrientado(ListaAdj *vet[], ListaAdj *vetSaida[]){
               ptr=ptr->next;
               if (ptr->num_vertice!=vet[i]->num_vertice 
               && Vetaux[ptr->num_vertice]==0){
-                  criarVerticeADJ(vetSaida[i],ptr->num_vertice);
-                  criarVerticeADJ(vetSaida[ptr->num_vertice],vet[i]->num_vertice);     
+                  criarVerticeADJ(vetSaida[i],ptr->num_vertice,0);
+                  criarVerticeADJ(vetSaida[ptr->num_vertice],vet[i]->num_vertice,0);     
                   Vetaux[ptr->num_vertice]++;
               }
         }

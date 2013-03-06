@@ -15,7 +15,7 @@ void GrafoQuadrado(ListaAdj *vet[], ListaAdj *vetSaida[]){
                   while (ptr2->next!=NULL){
                         ptr2=ptr2->next;
                         if (ptr->num_vertice!=ptr2->num_vertice)
-                           criarVerticeADJ(vetSaida[i],ptr2->num_vertice);
+                           criarVerticeADJ(vetSaida[i],ptr2->num_vertice,0);
                   }
             }
         }
