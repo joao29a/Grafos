@@ -3,7 +3,7 @@ CFLAGS=-Wall -Wextra -g -O3
 BUILD_DIR=./bin
 SRC_DIR=./Graphs
 
-all: bfs dfs CaminhoMinimo GrafoNOrientado GrafoQuadrado GrauSE 	
+all: bfs dfs CaminhoMinimo GrafoNOrientado GrafoQuadrado 	
 
 bfs: dir_bin 
 	${CC} ${CFLAGS} ${SRC_DIR}/BFS.c ${SRC_DIR}/Fila/Fila.c ${SRC_DIR}/Lista\ ADJ/ListaAdjacencia.c -o ${BUILD_DIR}/bfs
@@ -16,9 +16,7 @@ CaminhoMinimo: dir_bin
 GrafoNOrientado: dir_bin
 	${CC} ${CFLAGS} ${SRC_DIR}/GrafoNOrientado.c ${SRC_DIR}/Lista\ ADJ/ListaAdjacencia.c -o ${BUILD_DIR}/GrafoNOrientado
 GrafoQuadrado: dir_bin
-	${CC} ${CFLAGS} ${SRC_DIR}/GrafoQuadrado.c ${SRC_DIR}/Lista\ ADJ/ListaAdjacencia.c -o ${BUILD_DIR}/GrafoQuadrado
-GrauSE:	dir_bin
-	${CC} ${CFLAGS} ${SRC_DIR}/GrauSE.c ${SRC_DIR}/Lista\ ADJ/ListaAdjacencia.c -o ${BUILD_DIR}/GrauSE
+	${CC} ${CFLAGS} ${SRC_DIR}/GrafoQuadrado.c ${SRC_DIR}/Lista\ ADJ/ListaAdjacencia.c ${SRC_DIR}/GrauSE.c -o ${BUILD_DIR}/GrafoQuadrado
 
 dir_bin:
 	mkdir -p ${BUILD_DIR} 

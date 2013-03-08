@@ -2,7 +2,9 @@
 #include <stdlib.h>
 #include <string.h>
 #include "Lista ADJ/ListaAdjacencia.h"
+#include "GrauSE.h"
 
+//Complexidade O(V+E)
 void GrauSaida(ListaAdj *origem[]){
      ListaAdj *pont;
      int i;
@@ -23,6 +25,7 @@ void ImprimirGrauSaida(ListaAdj *origem[]){
          printf("Vertice %d: %d\n",i,origem[i]->grau_saida);
 }
 
+//Complexidade O(V.E)
 void GrauEntrada(ListaAdj *origem[]){
      ListaAdj *pont;
      int i;
@@ -45,18 +48,4 @@ void ImprimirGrauEntrada(ListaAdj *origem[]){
      printf("\nGrau de Entrada:\n");
      for (i=0;i<VERTICE;i++)
          printf("Vertice %d: %d\n",i,origem[i]->grau_entrada);
-}
-
-int main(){
-    ListaAdj *vet[VERTICE];
-    criarVetPtr(vet);
-    InserirVertices(vet);
-    ImprimirLista(vet);
-    
-    GrauSaida(vet);
-    ImprimirGrauSaida(vet);
-    GrauEntrada(vet);
-    ImprimirGrauEntrada(vet);
-    
-    return 0;
 }
