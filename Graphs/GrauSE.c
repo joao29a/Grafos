@@ -25,22 +25,17 @@ void ImprimirGrauSaida(ListaAdj *origem[]){
          printf("Vertice %d: %d\n",i,origem[i]->grau_saida);
 }
 
-//Complexidade O(V.E)
+//Complexidade O(V+E)
 void GrauEntrada(ListaAdj *origem[]){
      ListaAdj *pont;
      int i;
      for (i=0;i<VERTICE;i++){
-         origem[i]->grau_entrada=0;
-         int j;
-         for (j=0;j<VERTICE;j++){         
-             pont=origem[j];
-             while (pont->next!=NULL){
-                   pont=pont->next;
-                   if (origem[i]->num_vertice==pont->num_vertice)
-                      origem[i]->grau_entrada++;
-             }
+         pont=origem[i];
+         while (pont->next!=NULL){
+         	pont=pont->next;
+         	origem[pont->num_vertice]->grau_entrada += 1;
          }
-     }   
+    }   
 }
 
 void ImprimirGrauEntrada(ListaAdj *origem[]){
