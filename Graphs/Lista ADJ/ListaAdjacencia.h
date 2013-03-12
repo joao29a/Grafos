@@ -1,17 +1,20 @@
 #ifndef LISTAADJ_H_GUARD
 #define LISTAADJ_H_GUARD
 
-#define VERTICE 5
-#define INICIO 3
+#define VERTICE 6
+#define INICIO 0
 
 typedef struct ListaVertice {
-       int num_vertice;
-       int grau_saida;
-       int grau_entrada;
-       int distancia;
-       int aresta;
-       char visitado;
-       struct ListaVertice *next;
+	int num_vertice;
+	int grau_saida;
+	int grau_entrada;
+	int distancia;
+	int aresta;
+	char visitado;
+	int pai;
+	int carimboSaida;
+	int carimboEntrada;
+	struct ListaVertice *next;
 }ListaAdj;
 
 void criarVerticeADJ(ListaAdj *origem, int vertice, int aresta);
