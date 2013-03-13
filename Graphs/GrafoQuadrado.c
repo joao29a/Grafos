@@ -2,6 +2,7 @@
 #include <stdlib.h>
 #include "Lista ADJ/ListaAdjacencia.h"
 #include "GrauSE.h"
+#include "Transposto.h"
 
 void GrafoQuadrado(ListaAdj *vet[], ListaAdj *vetSaida[]){
 	printf("\nGrafo Quadrado:\n");
@@ -27,7 +28,12 @@ int main(){
 	criarVetPtr(vet);
 	InserirVertices(vet);
 	ImprimirLista(vet);
-	GrauSaida(vet);
+	
+	ListaAdj *vetSaida[VERTICE];
+	criarVetPtr(vetSaida);
+	grafoTransposto(vet,vetSaida);
+	ImprimirLista(vetSaida);
+	/*GrauSaida(vet);
 	ImprimirGrauSaida(vet);
 	GrauEntrada(vet);
 	ImprimirGrauEntrada(vet);
@@ -35,7 +41,7 @@ int main(){
 	ListaAdj *vetSaida[VERTICE];
 	criarVetPtr(vetSaida);
 	GrafoQuadrado(vet,vetSaida);
-	ImprimirLista(vetSaida);
+	ImprimirLista(vetSaida);*/
 
 	return 0;
 }

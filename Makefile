@@ -16,7 +16,7 @@ CaminhoMinimo: dir_bin
 GrafoNOrientado: dir_bin
 	${CC} ${CFLAGS} ${SRC_DIR}/GrafoNOrientado.c ${SRC_DIR}/Lista\ ADJ/ListaAdjacencia.c -o ${BUILD_DIR}/GrafoNOrientado
 GrafoQuadrado: dir_bin
-	${CC} ${CFLAGS} ${SRC_DIR}/GrafoQuadrado.c ${SRC_DIR}/Lista\ ADJ/ListaAdjacencia.c ${SRC_DIR}/GrauSE.c -o ${BUILD_DIR}/GrafoQuadrado
+	${CC} ${CFLAGS} ${SRC_DIR}/GrafoQuadrado.c ${SRC_DIR}/Lista\ ADJ/ListaAdjacencia.c ${SRC_DIR}/GrauSE.c ${SRC_DIR}/Transposto.c -o ${BUILD_DIR}/GrafoQuadrado
 
 dir_bin:
 	mkdir -p ${BUILD_DIR} 
