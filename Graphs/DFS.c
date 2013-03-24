@@ -2,6 +2,7 @@
 #include <stdlib.h>
 #include <string.h>
 #include "hdr/AdjacencyList.h"
+#include "hdr/DFS.h"
 
 int time;
 
@@ -25,12 +26,9 @@ void DFSvisit(AdjacencyList *Graph[], int selected){
 }
 
 void DFS(AdjacencyList *Graph[]){
-	int i;
-	for (i=0;i<VERTEX;i++){
-		Graph[i]->visit='w';
-		Graph[i]->father=-1;
-	}
+	resetVisit(Graph);
 	time=0;
+	int i;
 	for (i=0;i<VERTEX;i++)
 		if (Graph[i]->visit=='w'){
 			DFSvisit(Graph,Graph[i]->vertexNumber);
