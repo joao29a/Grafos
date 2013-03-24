@@ -8,6 +8,7 @@ void BFS(AdjacencyList *Graph[], int selected){
 	resetVisit(Graph);
 	Graph[selected]->visit='g';
 	Graph[selected]->distance=0;
+	Graph[selected]->father=NULL;
 	Queue *Q;
 	Q=NULL;
 	Enqueue(&Q,selected);
@@ -19,9 +20,11 @@ void BFS(AdjacencyList *Graph[], int selected){
 			if (Graph[buffer->vertexNumber]->visit=='w'){
 				Graph[buffer->vertexNumber]->visit='g';
 				Graph[buffer->vertexNumber]->distance=Graph[element]->distance+1;
+				Graph[buffer->vertexNumber]->father=Graph[element];
 				Enqueue(&Q,buffer->vertexNumber);
 			}
 		}
+		Graph[element]->visit='b';
 	}
 }
 

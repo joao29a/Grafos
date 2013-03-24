@@ -11,9 +11,9 @@ typedef struct adjacency {
 	int distance;
 	int edge;
 	char visit;
-	int father;
 	int outputStamp;
 	int inputStamp;
+	struct adjacency *father;
 	struct adjacency *next;
 }AdjacencyList;
 
@@ -22,6 +22,8 @@ void createGraph(AdjacencyList *Graph[]);
 void insertVertex(AdjacencyList *Graph, int adjVertex, int edge);
 
 void printGraph(AdjacencyList *Graph[]);
+
+void printFather(AdjacencyList *Graph[]);
 
 void initializeGraph(AdjacencyList *Graph[]);
 

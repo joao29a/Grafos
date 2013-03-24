@@ -41,6 +41,17 @@ void printGraph(AdjacencyList *Graph[]){
 	}
 }
 
+void printFather(AdjacencyList *Graph[]){
+	int i;
+	for (i=0;i<VERTEX;i++){
+		printf("Father of vertex %d: ",Graph[i]->vertexNumber);
+		if (Graph[i]->father!=NULL)
+			printf("%d\n",Graph[i]->father->vertexNumber);
+		else
+			printf("nil\n");
+	}
+}
+
 void initializeGraph(AdjacencyList *Graph[]){
 	int i;
 	for (i=0;i<VERTEX;i++){
@@ -57,5 +68,6 @@ void resetVisit(AdjacencyList *Graph[]){
 	for (i=0;i<VERTEX;i++){
 		Graph[i]->visit='w';
 		Graph[i]->distance=-1;
+		Graph[i]->father=NULL;
 	}
 }
