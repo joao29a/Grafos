@@ -4,7 +4,8 @@
 
 void createGraph(AdjacencyList *Graph[]){
 	//exemple 22.3 from Cormen 3rd edition
-	/*insertVertex(Graph[0],1,0);
+	/*
+	insertVertex(Graph[0],1,0);
 	insertVertex(Graph[0],3,0);
 	insertVertex(Graph[1],0,0);
 	insertVertex(Graph[1],2,0);
@@ -26,6 +27,7 @@ void createGraph(AdjacencyList *Graph[]){
 	insertVertex(Graph[7],6,0);
 	*/
 	//exemple 22.2 from Cormen 3rd edition
+	/*
 	insertVertex(Graph[0],1,0);
      	insertVertex(Graph[0],3,0);
      	insertVertex(Graph[1],2,0);
@@ -33,8 +35,20 @@ void createGraph(AdjacencyList *Graph[]){
 	insertVertex(Graph[3],1,0);
 	insertVertex(Graph[4],2,0);
 	insertVertex(Graph[4],5,0);
-	insertVertex(Graph[5],5,0);
-	
+	//insertVertex(Graph[5],5,0);
+	*/
+	//exemple 22.7 from Cormen 3rd edition
+	//*
+	insertVertex(Graph[1],6,0);
+	insertVertex(Graph[3],6,0);
+	insertVertex(Graph[3],4,0);
+	insertVertex(Graph[4],6,0);
+	insertVertex(Graph[4],5,0);
+	insertVertex(Graph[5],8,0);
+	insertVertex(Graph[0],5,0);
+	insertVertex(Graph[0],7,0);
+	insertVertex(Graph[7],8,0);
+	//*/
 }
 
 void insertVertex(AdjacencyList *Graph, int adjVertex, int edge){
@@ -93,5 +107,6 @@ void resetVisit(AdjacencyList *Graph[]){
 		Graph[i]->visit='w';
 		Graph[i]->distance=-1;
 		Graph[i]->father=NULL;
+		Graph[i]->component=i;
 	}
 }

@@ -6,6 +6,7 @@
 #include "hdr/Stack.h"
 
 int time;
+Stack *topologicalSort;
 
 void DFSStack(AdjacencyList *Graph[]){
 	resetVisit(Graph);
@@ -51,18 +52,17 @@ void DFSStack(AdjacencyList *Graph[]){
 		printf("Vertex: %2d | inputStamp: %2d | OutputStamp: %2d\n",Graph[i]->vertexNumber,
 				Graph[i]->inputStamp,Graph[i]->outputStamp);
 	}
-			
 }
 
 void DFSvisit(AdjacencyList *Graph[], int selected){
 	Graph[selected]->visit='g';
 	time++;
-	printf("%d ",selected);
 	Graph[selected]->inputStamp=time;
 	AdjacencyList *buffer=Graph[selected];
 	while (buffer->next!=NULL){
 		buffer=buffer->next;
 		if (Graph[buffer->vertexNumber]->visit=='w'){
+			Graph[buffer->vertexNumber]->component=Graph[selected]->component;
 			Graph[buffer->vertexNumber]->father=Graph[selected];
 			DFSvisit(Graph,buffer->vertexNumber);             
 		}
@@ -70,8 +70,9 @@ void DFSvisit(AdjacencyList *Graph[], int selected){
 	Graph[selected]->visit='b';
 	time=time+1;
 	Graph[selected]->outputStamp=time;
-	printf("Vertex: %2d | inputStamp: %2d | OutputStamp: %2d\n",Graph[selected]->vertexNumber,
-		Graph[selected]->inputStamp,Graph[selected]->outputStamp);	
+	Push(&topologicalSort,Graph[selected]->vertexNumber);
+	printf("Vertex: %2d | Component: %2d | inputStamp: %2d | OutputStamp: %2d\n",Graph[selected]->vertexNumber,
+		Graph[selected]->component,Graph[selected]->inputStamp,Graph[selected]->outputStamp);	
 }
 
 void DFS(AdjacencyList *Graph[]){
@@ -82,4 +83,14 @@ void DFS(AdjacencyList *Graph[]){
 		if (Graph[i]->visit=='w'){
 			DFSvisit(Graph,Graph[i]->vertexNumber);
 		}
+}
+
+void printTopologicalSort(AdjacencyList *Graph[]){
+	Stack *buffer;
+	buffer=topologicalSort;
+	while (buffer!=NULL){
+		int element=buffer->number;
+		printf("%d: %d/%d | ",element,Graph[element]->inputStamp,Graph[element]->outputStamp);
+		buffer=buffer->next;
+	}
 }
