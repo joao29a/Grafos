@@ -5,6 +5,8 @@
 
 extern int time;
 
+void DFSStack(AdjacencyList *Graph[]);
+
 void DFSvisit(AdjacencyList *Graph[], int selected);
 
 void DFS(AdjacencyList *Graph[]);

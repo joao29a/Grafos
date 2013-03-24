@@ -3,6 +3,29 @@
 #include "hdr/AdjacencyList.h"
 
 void createGraph(AdjacencyList *Graph[]){
+	//exemple 22.3 from Cormen 3rd edition
+	/*insertVertex(Graph[0],1,0);
+	insertVertex(Graph[0],3,0);
+	insertVertex(Graph[1],0,0);
+	insertVertex(Graph[1],2,0);
+	insertVertex(Graph[2],1,0);
+	insertVertex(Graph[3],0,0);
+	insertVertex(Graph[3],4,0);
+	insertVertex(Graph[3],5,0);
+	insertVertex(Graph[4],3,0);
+	insertVertex(Graph[4],5,0);
+	insertVertex(Graph[4],6,0);
+	insertVertex(Graph[5],3,0);
+	insertVertex(Graph[5],4,0);
+	insertVertex(Graph[5],6,0);
+	insertVertex(Graph[5],7,0);
+	insertVertex(Graph[6],4,0);
+	insertVertex(Graph[6],5,0);
+	insertVertex(Graph[6],7,0);
+	insertVertex(Graph[7],5,0);
+	insertVertex(Graph[7],6,0);
+	*/
+	//exemple 22.2 from Cormen 3rd edition
 	insertVertex(Graph[0],1,0);
      	insertVertex(Graph[0],3,0);
      	insertVertex(Graph[1],2,0);
@@ -11,6 +34,7 @@ void createGraph(AdjacencyList *Graph[]){
 	insertVertex(Graph[4],2,0);
 	insertVertex(Graph[4],5,0);
 	insertVertex(Graph[5],5,0);
+	
 }
 
 void insertVertex(AdjacencyList *Graph, int adjVertex, int edge){
