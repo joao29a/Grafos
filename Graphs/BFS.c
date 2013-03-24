@@ -1,43 +1,34 @@
 #include <stdio.h>
 #include <stdlib.h>
-#include "Fila/Fila.h"
-#include "Lista ADJ/ListaAdjacencia.h"
+#include "hdr/Queue.h"
+#include "hdr/AdjacencyList.h"
+#include "hdr/BFS.h"
 
-void BFS(ListaAdj *vet[], int selecionado){
-     zerarVisita(vet);
-     vet[selecionado]->visitado='c';
-     vet[selecionado]->distancia=0;     
-     Fila *lista;
-     lista=NULL;
-     EnfileirarFila(&lista,selecionado);
-     while (lista!=NULL){
-           int elemento=RetirarFila(&lista);
-           ListaAdj *ptr=vet[elemento];
-           while (ptr->next!=NULL){
-                 ptr=ptr->next;
-                 if (vet[ptr->num_vertice]->visitado=='b'){
-                    vet[ptr->num_vertice]->visitado='c';
-                    vet[ptr->num_vertice]->distancia=vet[elemento]->distancia+1;
-                    EnfileirarFila(&lista,ptr->num_vertice);
-                 }
-           }
-     }
+void BFS(AdjacencyList *Graph[], int selected){
+	resetVisit(Graph);
+	Graph[selected]->visit='g';
+	Graph[selected]->distance=0;
+	Queue *Q;
+	Q=NULL;
+	Enqueue(&Q,selected);
+	while (Q!=NULL){
+		int element=Dequeue(&Q);
+		AdjacencyList *buffer=Graph[element];
+		while (buffer->next!=NULL){
+			buffer=buffer->next;
+			if (Graph[buffer->vertexNumber]->visit=='w'){
+				Graph[buffer->vertexNumber]->visit='g';
+				Graph[buffer->vertexNumber]->distance=Graph[element]->distance+1;
+				Enqueue(&Q,buffer->vertexNumber);
+			}
+		}
+	}
 }
 
-void imprimirDistancia(ListaAdj *vet[]){
-     printf("\n\nBreadth-first search VERTICE %d:\n",INICIO);
-     int i;
-     for (i=0;i<VERTICE;i++)
-         printf("Vertice %d: %d\n",i,vet[i]->distancia);
-     printf("\n");
-}
-
-int main(){
-    ListaAdj *vet[VERTICE];
-    criarVetPtr(vet);
-    InserirVertices(vet);
-    ImprimirLista(vet);
-    BFS(vet,INICIO);
-    imprimirDistancia(vet);
-    return 0;
+void printBFS(AdjacencyList *Graph[]){
+	printf("\n\nBreadth-first search VERTEX %d:\n",START);
+	int i;
+	for (i=0;i<VERTEX;i++)
+		printf("VERTEX %d: %d\n",Graph[i]->vertexNumber,Graph[i]->distance);
+	printf("\n");
 }

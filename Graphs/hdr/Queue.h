@@ -5,11 +5,8 @@ typedef struct queue{
         struct queue *next;
 }Queue;
 
-extern Queue *fifo;
-extern Queue *back;
+void Enqueue(Queue **fifo, int value);
 
-void Enqueue(int value);
-
-int Dequeue();
+int Dequeue(Queue **fifo);
 
 #endif

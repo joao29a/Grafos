@@ -6,10 +6,8 @@ typedef struct stack{
         struct stack *next;
 }Stack;
 
-extern Stack *lifo;
+void Push(Stack **lifo, int value);
 
-void Push(int value);
-
-int Pop();
+int Pop(Stack **lifo);
 
 #endif

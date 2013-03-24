@@ -2,30 +2,29 @@
 #include <stdlib.h>
 #include "hdr/Queue.h"
 
-Queue *fifo;
-Queue *back;
 
-void Enqueue(int value){
-	if (fifo == NULL){
-		fifo = malloc(sizeof(Queue));
-		fifo->number = value;
-		fifo->next = NULL;
-		back = fifo;
+void Enqueue(Queue **fifo, int value){
+	if ((*fifo) == NULL){
+		(*fifo) = malloc(sizeof(Queue));
+		(*fifo)->number = value;
+		(*fifo)->next = NULL;
 	}
 	else{
 		Queue *buffer;
-		buffer = malloc(sizeof(Queue));
+		buffer=(*fifo);
+		while (buffer->next!=NULL)
+			buffer=buffer->next;
+		buffer->next = malloc(sizeof(Queue));
+		buffer=buffer->next;
 		buffer->number = value;
 		buffer->next = NULL;
-		back->next = buffer;
-		back = buffer;
 	}
 }
 
-int Dequeue(){
+int Dequeue(Queue **fifo){
 	Queue *buffer;
-	buffer = fifo;
-	fifo = fifo->next;
+	buffer = (*fifo);
+	(*fifo) = (*fifo)->next;
 	int value = buffer->number;
 	free(buffer);
 	return value;
