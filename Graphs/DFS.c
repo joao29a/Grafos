@@ -19,7 +19,7 @@ void DFSStack(AdjacencyList *Graph[]){
 			Push(&Q,Graph[i]->vertexNumber);
 			int element;
 			while (Q!=NULL){
-				int empilhou=0;
+				int pushed=0;
 				element=Pop(&Q);
 				time++;
 				Graph[element]->inputStamp=time;
@@ -28,13 +28,13 @@ void DFSStack(AdjacencyList *Graph[]){
 				while (buffer->next!=NULL){
 					buffer=buffer->next;
 					if (Graph[buffer->vertexNumber]->visit=='w'){
-						empilhou=1;
+						pushed=1;
 						Graph[buffer->vertexNumber]->visit='g';
 						Graph[buffer->vertexNumber]->father=Graph[element];
 						Push(&Q,buffer->vertexNumber);
 					}
 				}
-				if (!empilhou){
+				if (!pushed){
 					time++;
 					Graph[element]->outputStamp=time;
 				}
@@ -70,8 +70,8 @@ void DFSvisit(AdjacencyList *Graph[], int selected){
 	Graph[selected]->visit='b';
 	time=time+1;
 	Graph[selected]->outputStamp=time;
-	printf("Vertex: %2d | inputStamp: %2d | OutputStamp: %2d\n",Graph[selected]->vertexNumber,Graph[selected]->inputStamp,
-				Graph[selected]->outputStamp);	
+	printf("Vertex: %2d | inputStamp: %2d | OutputStamp: %2d\n",Graph[selected]->vertexNumber,
+		Graph[selected]->inputStamp,Graph[selected]->outputStamp);	
 }
 
 void DFS(AdjacencyList *Graph[]){
