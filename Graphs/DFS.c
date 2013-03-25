@@ -7,6 +7,7 @@
 
 int time;
 Stack *topologicalSort;
+int find=0;
 
 void DFSStack(AdjacencyList *Graph[]){
 	resetVisit(Graph);
@@ -93,4 +94,20 @@ void printTopologicalSort(AdjacencyList *Graph[]){
 		printf("%d: %d/%d | ",element,Graph[element]->inputStamp,Graph[element]->outputStamp);
 		buffer=buffer->next;
 	}
+}
+
+void pathVertex(AdjacencyList *Graph[], int s, int t){
+	if (s==t)
+		find=1;
+	AdjacencyList *buffer;
+	buffer=Graph[s];
+	Graph[s]->visit='g';
+	while (buffer->next!=NULL && !find){
+		buffer=buffer->next;
+		if (Graph[buffer->vertexNumber]->visit=='w')
+			pathVertex(Graph,buffer->vertexNumber,t);
+	}
+	Graph[s]->visit='b';
+	if (find)
+		Push(&topologicalSort,s);
 }
